@@ -44,7 +44,7 @@ Keep preview and apply semantics consistent with existing project tooling. Do no
 
 Exercise observable behaviour using a disposable project fixture where practical:
 
-- Launch from the supported working directories, with no reliance on the author's home paths or untracked files; check executable mode and required runtime availability.
+- Launch from the supported working directories, with no reliance on the author's home paths or local files beyond those the change adds; check executable mode and required runtime availability.
 - Verify top-level and changed subcommand help, normal text output, parseable JSON including empty results, invalid inputs, and errors with the documented status.
 - Change an authoritative input and confirm the answer updates, or that a stale cache is disclosed.
 - For child wrappers, verify argument boundaries, child failure and stderr, and any documented log capture or signal handling.

@@ -4,11 +4,11 @@ These are evaluation specifications, not a record of completed runs. Give the ag
 
 ## First CLI, no history
 
-**Inputs:** A tiny project with a manifest defining lint and test scripts, a source entry point, and an agent instruction file. No session history is accessible.
+**Inputs:** A tiny project with a manifest defining lint and test scripts, a `Makefile` with `lint` and `test` targets, a source entry point, and an agent instruction file. No session history is accessible.
 
 **Request:** “Use project-cli to set up a read-only CLI that helps an agent orient in this repository.”
 
-**Check:** It derives useful answers from current project sources, labels the missing transcript evidence, and does not invent counts or savings. Help and JSON work; invalid input fails. Invoking from a supported alternate directory works. Changing the manifest changes the answer or explicitly invalidates a cache. Agent instructions point to the actual command without copying the whole catalogue.
+**Check:** It derives useful answers from current project sources, labels the missing transcript evidence, and does not invent counts or savings. Help and JSON work; invalid input fails. Invoking from a supported alternate directory works. It reuses or extends the existing scripts and targets instead of duplicating their commands. Changing the manifest changes the answer or explicitly invalidates a cache. Agent instructions point to the actual command without copying the whole catalogue.
 
 ## Existing CLI, narrow defect
 
@@ -20,11 +20,11 @@ These are evaluation specifications, not a record of completed runs. Give the ag
 
 ## Mixed project histories
 
-**Inputs:** Synthetic sessions from two repositories with the same basename, one worktree of the target, a duplicated export, a directory change into the other project, and one truncated record. Include a dummy secret in an unrelated event.
+**Inputs:** Synthetic sessions from two repositories with the same basename, one worktree of the target, a duplicated export, a directory change into the other project, and one truncated record. Include a dummy secret in an unrelated event, a cheap `rg` lookup repeated across many sessions, and the analysing session's own transcript.
 
 **Request:** “Use project-cli to identify recurring tasks in this repo's sessions. Report candidates only.”
 
-**Check:** It scopes by repository identity and event working directory, counts target sessions and calls separately, handles the worktree and duplicate, reports coverage gaps, and neither replays commands nor prints the dummy secret. The report distinguishes observed counts from hypotheses. It makes no implementation changes.
+**Check:** It scopes by repository identity and event working directory, counts target sessions and calls separately, handles the worktree and duplicate, excludes the analysing session, does not propose a wrapper solely because the cheap lookup is frequent, reports coverage gaps, and neither replays commands nor prints the dummy secret. The report distinguishes observed counts from hypotheses. It makes no implementation changes.
 
 ## Repeated failure and lost stderr
 

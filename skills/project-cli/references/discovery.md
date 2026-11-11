@@ -6,7 +6,7 @@ Identify the repository root, relevant worktrees or renamed paths, and the histo
 
 Find session sources from the active tool's configuration or available session API. Common local starting points include `~/.claude/projects/` and `~/.codex/sessions/`, but location and schema vary. Other agents and orchestration tools may expose histories through their own APIs or exports. Inspect a small record sample before choosing an extractor.
 
-Scope each session using its workspace metadata, working directory, or explicit repository association. A shared Git common directory can establish worktree identity. A matching basename or a mention of the project in conversation is insufficient. Sessions can change directories; separate events from other projects and flag ambiguous attribution. Do not mine unrelated client histories. Never replay transcript commands.
+Scope each session using its workspace metadata, working directory, or explicit repository association. A shared Git common directory can establish worktree identity. A matching basename or a mention of the project in conversation is insufficient. Sessions can change directories; separate events from other projects and flag ambiguous attribution. Do not mine unrelated client histories. Exclude the current analysis session, whose own searches would inflate the counts. Never replay transcript commands.
 
 Record the period, sources, included sessions, exclusions, unreadable records, truncation, and unknown attribution. Do not call a sample “all sessions.” If there are no usable sessions, say so and inspect current scripts, documentation, and the user's recurring tasks instead.
 
