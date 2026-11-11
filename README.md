@@ -6,6 +6,8 @@ It works with the project's existing runtime and tooling. It can extend an exist
 
 ## Install
 
+Requires [Node.js 22.20 or later](https://github.com/vercel-labs/skills#install-a-skill) with npm/npx. Installation has been checked with `skills@1.8.1` for Codex and Claude Code.
+
 Install to the current project with the [skills CLI](https://github.com/vercel-labs/skills/blob/main/docs/commands.md):
 
 ```sh
@@ -29,6 +31,8 @@ You can inspect discovery without installing:
 ```sh
 npx skills add tiaanduplessis/project-cli-skill --list
 ```
+
+This should list one skill named `project-cli`.
 
 The same repository layout and install command can be used after a future public release. Compatibility with the installer does not imply a public skills.sh listing.
 
@@ -67,11 +71,17 @@ To check installer discovery from a local checkout:
 npx skills add . --list
 ```
 
-Keep private session data and project-specific generated CLIs out of this skill repository. Before making it public, review the full Git history for private material, choose an open-source licence, and validate installation from the public repository. Visibility changes and publication remain separate decisions.
+Keep private session data and project-specific generated CLIs out of this skill repository.
+
+## Contribute
+
+Edit the skill in `skills/project-cli/` and check discovery with the command above. For behaviour changes, use the relevant evaluation scenarios. Keep the root `LICENSE` and the bundled `skills/project-cli/LICENSE.txt` identical.
+
+Report bugs or suggest improvements in [Issues](https://github.com/tiaanduplessis/project-cli-skill/issues). Include the agent, installer version, and a small sanitised reproduction; leave out raw transcripts, credentials, and client data.
 
 ## Background
 
-Inspired by the project-specific CLI source guide supplied by Tiaan, including Jean-Michel Lemieux's repetition-to-command approach. The skill uses the practical ideas without treating reported savings or tool-count thresholds as universal results.
+Inspired by Jean-Michel Lemieux's repetition-to-command approach and the writing below. The skill uses the practical ideas without treating reported savings or tool-count thresholds as universal results.
 
 Related reading:
 
@@ -80,3 +90,7 @@ Related reading:
 - [Armin Ronacher: Your MCP Doesn't Need 30 Tools: It Needs Code](https://lucumr.pocoo.org/2025/8/18/code-mcps/)
 
 These are background references, not required dependencies or instructions to fetch on every invocation.
+
+## Licence
+
+[MIT](LICENSE). The licence is also included in the installed skill bundle.

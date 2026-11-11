@@ -1,5 +1,6 @@
 ---
 name: project-cli
+license: MIT
 description: "Set up, maintain, or improve a repository-specific CLI for coding agents. Use to turn repeated project lookups and workflows into commands, mine project sessions for candidates, or measure an existing agent CLI's usefulness. Ordinary CLI product development is outside this skill."
 ---
 
