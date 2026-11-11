@@ -20,7 +20,7 @@ Select your coding agent when prompted. For a global Codex install:
 npx skills add tiaanduplessis/project-cli-skill --skill project-cli --agent codex --global
 ```
 
-The repository is currently private. Installation needs GitHub access through your configured Git, GitHub CLI, or SSH authentication. An explicit SSH source is also available:
+An SSH source is also available if you prefer it:
 
 ```sh
 npx skills add git@github.com:tiaanduplessis/project-cli-skill.git --skill project-cli
@@ -33,8 +33,6 @@ npx skills add tiaanduplessis/project-cli-skill --list
 ```
 
 This should list one skill named `project-cli`.
-
-The same repository layout and install command can be used after a future public release. Compatibility with the installer does not imply a public skills.sh listing.
 
 ## Use
 
@@ -64,6 +62,8 @@ The skill works without transcripts; it labels source-derived candidates and mis
 The installable unit is [`skills/project-cli/`](skills/project-cli/SKILL.md). Its references travel with the skill; there are no dependencies on this repository's root or the author's machine. `agents/openai.yaml` supplies optional Codex UI metadata; the instructions themselves are agent-neutral.
 
 [`evals/scenarios.md`](evals/scenarios.md) contains behavioural evaluation cases for future revisions. Run relevant cases in disposable workspaces; review actual artifacts and actions as well as the final explanation. Packaging validation alone does not establish behavioural quality or token savings.
+
+A maintenance eval on an existing project's agent CLI passed independent checks. Setup and transcript-mining scenarios have not yet been evaluated.
 
 To check installer discovery from a local checkout:
 
